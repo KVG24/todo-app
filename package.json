@@ -1,0 +1,24 @@
+{
+  "name": "todo-app-odin",
+  "version": "1.0.0",
+  "description": "TOP Lesson. TODO app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pushpage": "git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/KVG24/todo-app-odin.git"
+  },
+  "author": "KVG24",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KVG24/todo-app-odin/issues"
+  },
+  "homepage": "https://github.com/KVG24/todo-app-odin#readme",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
