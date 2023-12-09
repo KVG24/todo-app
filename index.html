@@ -20,16 +20,43 @@
                     <h2>Projects</h2>
                 </div>
                 <div class="projects">
-                    <div class="project">Home</div>
+                    <div class="project active">Home</div>
                     <div class="project">Work</div>
                     <div class="project">Renovation</div>
                     <div class="project">Groceries</div>
                 </div>
             </div>
             <div class="tasks">
-                <div class="task">Clean garage</div>
-                <div class="task">Wash my car</div>
-                <div class="task">Repair window</div>
+                <div class="task">
+                    <h3 id="title">Clean Garage</h3>
+                    <p id="description">There is mess after car repair</p>
+                    <p id="due">Due: <span id="date">Tommorow</span></p>
+                    <p id="priority-text" data-priority="1">Priority: <span id="priority">Low</span></p>
+                    <div class="buttons">
+                        <button type="button" class="complete-btn">Complete</button>
+                        <button type="button" class="delete-btn">Delete</button>
+                    </div>
+                </div>
+                <div class="task">
+                    <h3 id="title">Wash my car</h3>
+                    <p id="description">Last clean was two weeks ago</p>
+                    <p id="due">Due: <span id="date">Tommorow</span></p>
+                    <p id="priority-text" data-priority="3">Priority: <span id="priority">High</span></p>
+                    <div class="buttons">
+                        <button type="button" class="complete-btn">Complete</button>
+                        <button type="button" class="delete-btn">Delete</button>
+                    </div>
+                </div>
+                <div class="task complete">
+                    <h3 id="title" class="complete-title">Repair windows</h3>
+                    <p id="description">Kids broke window upstairs while playing with ball</p>
+                    <p id="due">Due: <span id="date">3 days</span></p>
+                    <p id="priority-text" data-priority="4">Priority: <span id="priority">Highest</span></p>
+                    <div class="buttons">
+                        <button type="button" class="complete-btn">Complete</button>
+                        <button type="button" class="delete-btn">Delete</button>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
