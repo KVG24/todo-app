@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO app</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./main.js"></script>
+    <script src="./main.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -18,25 +18,21 @@
             <div class="projects-section">
                 <div class="projects-section-title">
                     <h2>Projects</h2>
+                    <button type="button" class="add-project-btn" id="add-project-btn">Add</button>
                 </div>
                 <div class="projects">
-                    <div class="project active">
-                        <h3 id="project-title">Home</h3>
-                        <button type="button" id="delete-project">Delete</button>
+                    <div class="project active" data-index="0">
+                        <h3 class="project-title">Home</h3>
+                        <button type="button" class="delete-project">Delete</button>
                     </div>
-                    <div class="project">
-                        <h3 id="project-title">Work</h3>
-                        <button type="button" id="delete-project">Delete</button>
-                    </div>
-                    <div class="project">
-                        <h3 id="project-title">Renovation</h3>
-                        <button type="button" id="delete-project">Delete</button>
-                    </div>
-                    <div class="project">
-                        <h3 id="project-title">Groceries</h3>
-                        <button type="button" id="delete-project">Delete</button>
-                    </div>
-                    <div class="project add">+</div>
+                </div>
+                <div class="form-project-div" style="display: none;">
+                    <form action="" class="add-project-form">
+                        <label for="form-project-title">Project name: </label>
+                        <input type="text" id="form-project-title">
+                        <button type="button" id="add-project-form-btn">Add</button>
+                        <button type="button" id="close-project-form-btn">X</button>
+                    </form>
                 </div>
             </div>
             <div class="tasks">
