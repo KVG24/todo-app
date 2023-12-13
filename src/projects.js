@@ -1,6 +1,6 @@
 const projectsContainer = document.querySelector('.projects');
 
-let projects = [new Project('Home')];
+let projects = [];
 let currentProject = projects[0];
 
 class Project {
@@ -59,12 +59,12 @@ class Project {
         this.tasks.forEach((item) => item.render());
     }
 
-    renderProjects() {
+    static renderProjects() {
         projectsContainer.innerHTML = '';
         projects.forEach((item) => item.render());
     }
 
-    setCurrentProject(project) {
+    static setCurrentProject(project) {
         currentProject = project
     }
 };

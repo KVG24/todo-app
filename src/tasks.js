@@ -2,7 +2,7 @@ import { currentProject } from "./projects";
 
 const tasks = document.querySelector('.tasks');
 
-class Task {
+export class Task {
     constructor(title, description, date, priority) {
         this.title = title;
         this.description = description;
@@ -18,20 +18,26 @@ class Task {
 
         const taskTitle = document.createElement('h3');
         taskTitle.setAttribute('id', 'task-title');
+        taskTitle.textContent = this.title;
 
         const taskDesc = document.createElement('p');
         taskDesc.setAttribute('id', 'description');
+        taskDesc.textContent = this.description;
 
         const taskDateContainer = document.createElement('p');
         taskDateContainer.setAttribute('id', 'due');
+        taskDateContainer.textContent = 'Due: '
         const taskDateValue = document.createElement('span');
         taskDateValue.setAttribute('id', 'task-date');
+        taskDateValue.textContent = this.date;
         taskDateContainer.appendChild(taskDateValue);
 
         const taskPriority = document.createElement('p');
         taskPriority.setAttribute('id', 'priority-text');
+        taskPriority.textContent = 'Priority: '
         const taskPriorityValue = document.createElement('span');
         taskPriorityValue.setAttribute('id', 'priority');
+        taskPriorityValue.textContent = this.priority;
         taskPriority.appendChild(taskPriorityValue);
 
         const taskBtnContainer = document.createElement('div');
@@ -82,7 +88,7 @@ class Task {
     }
 
     edit() {
-        
+
     }
 }
 

@@ -31,63 +31,30 @@
                     </form>
                 </div>
             </div>
+            <div class="task-btn-container">
+                <h2>Tasks</h2>
+                <button type="button" id="add-task">+</button>
+            </div>
+            <div class="task-add-modal" style="display: none;">
+                <div class="modal-content">
+                    <form action="">
+                        <label for="task-title-input">Title</label>
+                        <input type="text" id="task-title-input">
+                        <label for="task-desc-input">Description</label>
+                        <input type="text" id="task-desc-input">
+                        <label for="task-date-input">Deadline</label>
+                        <input type="date" name="task-date-input" id="task-date-input">
+                        <p>Priority: </p>
+                        <select name="task-priority-input" id="task-priority-input">
+                            <option value="Low">Low</option>
+                            <option value="Middle">Middle</option>
+                            <option value="Hight">Hight</option>
+                        </select>
+                        <button type="button" id="add-task-btn">Add Task</button>
+                    </form>
+                </div>
+            </div>
             <div class="tasks">
-                <div class="task-btn-container">
-                    <h2>Tasks</h2>
-                    <button type="button" id="add-task">+</button>
-                </div>
-                <div class="task-add-modal" style="display: none;">
-                    <div class="modal-content">
-                        <form action="">
-                            <label for="task-title-input">Title</label>
-                            <input type="text" id="task-title-input">
-                            <label for="task-desc-input">Description</label>
-                            <input type="text" id="task-desc-input">
-                            <label for="task-date-input">Deadline</label>
-                            <input type="date" name="task-date-input" id="task-date-input">
-                            <p>Priority: </p>
-                            <select name="task-priority-input" id="task-priority-input">
-                                <option value="low">Low</option>
-                                <option value="middle">Middle</option>
-                                <option value="hight">Hight</option>
-                            </select>
-                            <button type="button">Add Task</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="task">
-                    <h3 id="title">Clean Garage</h3>
-                    <p id="description">There is mess after car repair</p>
-                    <p id="due">Due: <span id="task-date"></span></p>
-                    <p id="priority-text">Priority: <span id="priority">Low</span></p>
-                    <div class="buttons">
-                        <button type="button" class="complete-btn">Complete</button>
-                        <button type="button" class="edit-btn">Edit</button>
-                        <button type="button" class="delete-btn">Delete</button>
-                    </div>
-                </div>
-                <div class="task">
-                    <h3 id="title">Wash my car</h3>
-                    <p id="description">Last clean was two weeks ago</p>
-                    <p id="due">Due: <span id="task-date"></span></p>
-                    <p id="priority-text">Priority: <span id="priority">High</span></p>
-                    <div class="buttons">
-                        <button type="button" class="complete-btn">Complete</button>
-                        <button type="button" class="edit-btn">Edit</button>
-                        <button type="button" class="delete-btn">Delete</button>
-                    </div>
-                </div>
-                <div class="task complete">
-                    <h3 id="title" class="complete-title">Repair windows</h3>
-                    <p id="description">Kids broke window upstairs while playing with ball</p>
-                    <p id="due">Due: <span id="task-date"></span></p>
-                    <p id="priority-text">Priority: <span id="priority">Highest</span></p>
-                    <div class="buttons">
-                        <button type="button" class="complete-btn">Complete</button>
-                        <button type="button" class="edit-btn">Edit</button>
-                        <button type="button" class="delete-btn">Delete</button>
-                    </div>
-                </div>
             </div>
         </main>
     </div>
