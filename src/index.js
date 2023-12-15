@@ -43,6 +43,7 @@ function clearProjectInput() {
 const addTaskBtn = document.getElementById('add-task');
 const addTaskModal = document.querySelector('.task-add-modal');
 const addTaskBtnForm = document.getElementById('add-task-btn');
+const closeTaskModalBtn = document.getElementById('close-modal-btn');
 
 addTaskBtn.addEventListener('click', () => {
     addTaskModal.style.display = 'flex';
@@ -59,6 +60,10 @@ addTaskBtnForm.addEventListener('click', () => {
     const task = new Task(taskTitle.value, taskDesc.value, taskDate.value, taskPriority.value);
     currentProject.tasks.push('task');
     task.render();
+});
+
+closeTaskModalBtn.addEventListener('click', () => {
+    addTaskModal.style.display = 'none';
 });
 
 Project.renderProjects();

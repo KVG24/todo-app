@@ -29,7 +29,11 @@ export class Task {
         taskDateContainer.textContent = 'Due: '
         const taskDateValue = document.createElement('span');
         taskDateValue.setAttribute('id', 'task-date');
-        taskDateValue.textContent = this.date;
+        if (!this.date) {
+            taskDateValue.textContent = 'No deadline'
+        } else {
+            taskDateValue.textContent = this.date;
+        }
         taskDateContainer.appendChild(taskDateValue);
 
         const taskPriority = document.createElement('p');
@@ -60,8 +64,10 @@ export class Task {
         completeBtn.addEventListener('click', () => {
             if (taskDiv.classList.value.includes('complete')) {
                 taskDiv.classList.remove('complete')
+                taskTitle.style.textDecoration = 'none';
             } else {
                 taskDiv.classList.add('complete');
+                taskTitle.style.textDecoration = 'line-through';
             }
         });
 
@@ -80,6 +86,9 @@ export class Task {
         taskDiv.appendChild(taskBtnContainer);
         tasks.appendChild(taskDiv);
 
+        this.title = '';
+        this.description = '';
+        this.date = '';
     }
 
     delete() {
