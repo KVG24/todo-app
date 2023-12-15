@@ -1,6 +1,6 @@
 import { currentProject } from "./projects";
 
-const tasks = document.querySelector('.tasks');
+const tasksContainer = document.querySelector('.tasks');
 
 export class Task {
     constructor(title, description, date, priority) {
@@ -84,7 +84,7 @@ export class Task {
         taskDiv.appendChild(taskDateContainer);
         taskDiv.appendChild(taskPriority);
         taskDiv.appendChild(taskBtnContainer);
-        tasks.appendChild(taskDiv);
+        tasksContainer.appendChild(taskDiv);
 
         this.title = '';
         this.description = '';
@@ -97,7 +97,28 @@ export class Task {
     }
 
     edit() {
+        const taskEditModal = document.querySelector('.task-edit-modal');
+        taskEditModal.style.display = 'flex';
+        const editTaskBtn = document.getElementById('edit-task-btn');
+        editTaskBtn.addEventListener('click', () => {
+            const title = document.getElementById('task-title-edit');
+            const desc = document.getElementById('task-desc-edit');
+            const date = document.getElementById('task-date-edit');
+            const priority = document.getElementById('task-title-edit');
 
+            this.title = title;
+            this.description = desc;
+            this.date = date;
+            this.priority = priority;
+            taskEditModal.style.display = 'none';
+            currentProject.renderTasks();
+        
+        });
+        
+        const closeEditModalBtn = document.getElementById('close-edit-modal-btn');
+        closeEditModalBtn.addEventListener('click', () => {
+            taskEditModal.style.display = 'none';
+        });
     }
 }
 

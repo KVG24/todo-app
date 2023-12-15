@@ -102,7 +102,7 @@ h2 {
     font-size: 4rem;
 }
 
-.form-project-div {
+.add-project-form-div {
     margin: 2rem auto;
     padding: 2rem;
     display: flex;
@@ -158,6 +158,10 @@ h2 {
     background-color: rgb(146, 170, 206);
 }
 
+.task-btn-container h2 {
+    margin-top: 30px;
+}
+
 .task-btn-container button {
     width: 100px;
 }
@@ -170,7 +174,8 @@ h2 {
     border-radius: 10px;
 }
 
-.task-add-modal {
+.task-add-modal,
+.task-edit-modal {
     width: 100%;
     height: 100%;
     position: fixed;

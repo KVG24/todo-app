@@ -3,15 +3,14 @@ import { Task } from "./tasks"
 
 // Projects manipulation
 
-const addProjectDiv = document.querySelector('.form-project-div');
-const projectAddBtn = document.getElementById('add-project-btn');
+const addProjectForm = document.querySelector('.add-project-form-div');
+const addProjectBtn = document.getElementById('add-project-btn');
 const addProjectToPageBtn = document.getElementById('add-project-form-btn');
 const closeProjectFormBtn = document.getElementById('close-project-form-btn');
 
 
-projectAddBtn.addEventListener('click', () => {
-    clearProjectInput();
-    addProjectDiv.style.display = 'block';
+addProjectBtn.addEventListener('click', () => {
+    addProjectForm.style.display = 'block';
 });
 
 
@@ -22,21 +21,12 @@ addProjectToPageBtn.addEventListener('click', () => {
     projectTitle.value = '';
     Project.renderProjects();
     Project.setCurrentProject(project);
-    let projectsContainer = document.querySelectorAll('.project');
-    projectsContainer[projectsContainer.length - 1].classList.add('active');
-    clearProjectInput();
-    addProjectDiv.style.display = 'none';
+    addProjectForm.style.display = 'none';
 });
-
 
 closeProjectFormBtn.addEventListener('click', () => {
-    addProjectDiv.style.display = 'none';
+    addProjectForm.style.display = 'none';
 });
-
-const projectTitleInput = document.getElementById('form-project-title');
-function clearProjectInput() {
-    projectTitleInput.value = '';
-}
 
 // Tasks manipulation
 

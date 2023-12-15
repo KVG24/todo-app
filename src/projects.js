@@ -1,8 +1,5 @@
 const projectsContainer = document.querySelector('.projects');
 
-let projects = [];
-let currentProject = projects[0];
-
 class Project {
     constructor(title) {
         this.title = title;
@@ -11,17 +8,14 @@ class Project {
     }
 
     render() {
-        // Create project element
         const projectDiv = document.createElement('div');
         projectDiv.classList.add('project');
         projectDiv.setAttribute('id', this.id);
         
-        // Create project title
         const projectDivTitle = document.createElement('h3');
         projectDivTitle.classList.add('project-title');
         projectDivTitle.textContent = this.title;
         
-        // Create project DELETE button
         const deleteProjectBtn = document.createElement('button');
         deleteProjectBtn.classList.add('delete-project');
         deleteProjectBtn.textContent = 'Delete';
@@ -49,7 +43,7 @@ class Project {
     }
 
     delete() {
-        projects.filter((item) => item.id !== this.id);
+        projects = projects.filter((item) => item.id !== this.id);
         Project.renderProjects();
     }
 
@@ -65,8 +59,11 @@ class Project {
     }
 
     static setCurrentProject(project) {
-        currentProject = project
+        currentProject = project;
     }
 };
 
-export { projects, Project, currentProject }
+let projects = [new Project('Example')];
+let currentProject = projects[0];
+
+export { projects, Project, currentProject };
