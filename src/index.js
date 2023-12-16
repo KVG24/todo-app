@@ -48,7 +48,7 @@ addTaskBtnForm.addEventListener('click', () => {
     const taskPriority = document.getElementById('task-priority-input');
 
     const task = new Task(taskTitle.value, taskDesc.value, taskDate.value, taskPriority.value);
-    currentProject.tasks.push('task');
+    currentProject.tasks.push(task);
     task.render();
 });
 

@@ -86,9 +86,6 @@ export class Task {
         taskDiv.appendChild(taskBtnContainer);
         tasksContainer.appendChild(taskDiv);
 
-        this.title = '';
-        this.description = '';
-        this.date = '';
     }
 
     delete() {
@@ -106,10 +103,10 @@ export class Task {
             const date = document.getElementById('task-date-edit');
             const priority = document.getElementById('task-title-edit');
 
-            this.title = title;
-            this.description = desc;
-            this.date = date;
-            this.priority = priority;
+            this.title = title.value;
+            this.description = desc.value;
+            this.date = date.value;
+            this.priority = priority.value;
             taskEditModal.style.display = 'none';
             currentProject.renderTasks();
         

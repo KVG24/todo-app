@@ -38,7 +38,7 @@ class Project {
 
             if(!projectDiv.classList.value.includes('active')) {
                 projectDiv.classList.add('active')
-            } else return
+            }
         })
     }
 
@@ -48,14 +48,14 @@ class Project {
     }
 
     renderTasks() {
-        const tasks = document.querySelector('.tasks');
-        tasks.innerHTML = '';
-        this.tasks.forEach((item) => item.render());
+        const tasksContainer = document.querySelector('.tasks');
+        tasksContainer.replaceChildren();
+        this.tasks.forEach(task => task.render());
     }
 
     static renderProjects() {
-        projectsContainer.innerHTML = '';
-        projects.forEach((item) => item.render());
+        projectsContainer.replaceChildren();
+        projects.forEach(project => project.render());
     }
 
     static setCurrentProject(project) {
