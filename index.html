@@ -18,15 +18,17 @@
                     <h2>Projects</h2>
                     <button type="button" class="add-project-btn" id="add-project-btn">Add</button>
                 </div>
-                <div class="projects">
+                <div class="add-project-modal" style="display: none;">
+                    <div class="add-project-form-div">
+                        <form action="" class="add-project-form">
+                            <label for="form-project-title">Project name: </label>
+                            <input type="text" id="form-project-title">
+                            <button type="submit" id="add-project-form-btn">Add</button>
+                            <button type="button" id="close-project-form-btn">X</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="add-project-form-div" style="display: none;">
-                    <form action="" class="add-project-form">
-                        <label for="form-project-title">Project name: </label>
-                        <input type="text" id="form-project-title">
-                        <button type="button" id="add-project-form-btn">Add</button>
-                        <button type="button" id="close-project-form-btn">X</button>
-                    </form>
+                <div class="projects">
                 </div>
             </div>
             <div class="task-btn-container">
