@@ -3,29 +3,29 @@ import { Task } from "./tasks"
 
 // Projects manipulation
 
-const addProjectForm = document.querySelector('.add-project-form-div');
+const addProjectModal = document.querySelector('.add-project-modal');
 const addProjectBtn = document.getElementById('add-project-btn');
 const addProjectToPageBtn = document.getElementById('add-project-form-btn');
 const closeProjectFormBtn = document.getElementById('close-project-form-btn');
 
 
 addProjectBtn.addEventListener('click', () => {
-    addProjectForm.style.display = 'block';
+    addProjectModal.style.display = 'flex';
 });
 
-
-addProjectToPageBtn.addEventListener('click', () => {
+addProjectToPageBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     const projectTitle = document.getElementById('form-project-title')
     const project = new Project(projectTitle.value)
     projects.push(project);
     projectTitle.value = '';
     Project.renderProjects();
     Project.setCurrentProject(project);
-    addProjectForm.style.display = 'none';
+    addProjectModal.style.display = 'none';
 });
 
 closeProjectFormBtn.addEventListener('click', () => {
-    addProjectForm.style.display = 'none';
+    addProjectModal.style.display = 'none';
 });
 
 // Tasks manipulation
@@ -57,6 +57,8 @@ closeTaskModalBtn.addEventListener('click', () => {
 });
 
 Project.renderProjects();
+
+
 
 
 
