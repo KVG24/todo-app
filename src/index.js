@@ -39,7 +39,8 @@ addTaskBtn.addEventListener('click', () => {
     addTaskModal.style.display = 'flex';
 });
 
-addTaskBtnForm.addEventListener('click', () => {
+addTaskBtnForm.addEventListener('click', (e) => {
+    e.preventDefault();
     addTaskModal.style.display = 'none';
     
     const taskTitle = document.getElementById('task-title-input');

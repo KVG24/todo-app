@@ -97,7 +97,8 @@ export class Task {
         const taskEditModal = document.querySelector('.task-edit-modal');
         taskEditModal.style.display = 'flex';
         const editTaskBtn = document.getElementById('edit-task-btn');
-        editTaskBtn.addEventListener('click', () => {
+        editTaskBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             const title = document.getElementById('task-title-edit');
             const desc = document.getElementById('task-desc-edit');
             const date = document.getElementById('task-date-edit');
