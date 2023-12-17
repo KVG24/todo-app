@@ -99,18 +99,18 @@ export class Task {
         const editTaskBtn = document.getElementById('edit-task-btn');
         editTaskBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const title = document.getElementById('task-title-edit');
-            const desc = document.getElementById('task-desc-edit');
-            const date = document.getElementById('task-date-edit');
-            const priority = document.getElementById('task-title-edit');
+            const taskTitle = document.getElementById('task-title-edit');
+            const taskDesc = document.getElementById('task-desc-edit');
+            const taskDate = document.getElementById('task-date-edit');
+            const taskPriority = document.getElementById('task-priority-edit');
 
-            this.title = title.value;
-            this.description = desc.value;
-            this.date = date.value;
-            this.priority = priority.value;
+            this.title = taskTitle.value;
+            this.description = taskDesc.value;
+            this.date = taskDate.value;
+            this.priority = taskPriority.value;
             taskEditModal.style.display = 'none';
             currentProject.renderTasks();
-        
+            
         });
         
         const closeEditModalBtn = document.getElementById('close-edit-modal-btn');
