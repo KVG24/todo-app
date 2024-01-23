@@ -1,2 +1,2 @@
-# TOP lesson. TODO app
+# TODO app
 
