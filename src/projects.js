@@ -9,4 +9,4 @@ class Project {
 let projects = [];
 let currentProject;
 
-export { projects, Project, currentProject };
+export { Project, projects, currentProject };
