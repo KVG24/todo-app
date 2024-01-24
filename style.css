@@ -34,6 +34,7 @@ h1 {
 main {
   display: flex;
   flex: 1;
+  background-color: rgb(146, 170, 206);
 }
 
 .projects-section {
@@ -141,6 +142,7 @@ h2 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  padding: 10px;
 }
 
 .tasks {
@@ -148,8 +150,17 @@ h2 {
   flex-wrap: wrap;
   gap: 40px;
   padding: 40px;
-  background-color: rgb(146, 170, 206);
   flex: 1;
+}
+
+.task {
+  border: 3px solid white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  padding: 30px;
+  background-color: rgb(20, 46, 54);
+  color: white;
+  height: min-content;
 }
 
 .task-btn-container {
@@ -157,7 +168,6 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: rgb(146, 170, 206);
 }
 
 .task-btn-container div {
@@ -218,16 +228,6 @@ h2 {
   background-color: gray;
   color: white;
   font-weight: bold;
-}
-
-.task {
-  border: 3px solid white;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  padding: 30px;
-  background-color: rgb(20, 46, 54);
-  color: white;
-  height: min-content;
 }
 
 #task-title {
