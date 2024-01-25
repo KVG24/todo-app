@@ -6,9 +6,6 @@ class Project {
   }
 }
 
-let projects = [];
-let currentProject;
-
 class Task {
   constructor(title, description, date, priority) {
     this.title = title;
@@ -19,4 +16,4 @@ class Task {
   }
 }
 
-export { Project, Task, projects, currentProject };
+export { Project, Task };
