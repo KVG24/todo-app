@@ -1,8 +1,5 @@
 import { Project, Task } from "./classes.js";
-import { renderProject } from "./functions.js";
-
-let projects = [];
-let currentProject;
+import { renderProjects, projects, currentProject } from "./functions.js";
 
 const addProjectBtn = document.querySelector(".add-project-btn");
 const addProjectModal = document.querySelector(".add-project-modal");
@@ -20,9 +17,8 @@ if (addProjectFormBtn) {
     const title = document.getElementById("form-project-title");
     const newProject = new Project(title.value);
     projects.push(newProject);
-    currentProject = newProject;
     console.log(projects);
-    renderProject();
+    renderProjects();
   });
 }
 
@@ -31,3 +27,4 @@ if (closeProjectFormBtn) {
     addProjectModal.style.display = "none";
   });
 }
+
