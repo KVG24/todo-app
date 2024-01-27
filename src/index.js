@@ -1,6 +1,8 @@
 import { Project, Task } from "./classes.js";
 import { renderProjects, projects, currentProject } from "./functions.js";
 
+// Project interactions
+
 const addProjectBtn = document.querySelector(".add-project-btn");
 const addProjectModal = document.querySelector(".add-project-modal");
 const addProjectFormBtn = document.getElementById("add-project-form-btn");
@@ -17,7 +19,6 @@ if (addProjectFormBtn) {
     const title = document.getElementById("form-project-title");
     const newProject = new Project(title.value);
     projects.push(newProject);
-    console.log(projects);
     renderProjects();
   });
 }
@@ -28,3 +29,22 @@ if (closeProjectFormBtn) {
   });
 }
 
+// Task interactions
+
+const addtaskBtn = document.getElementById("add-task");
+const addTaskToProjectBtn = document.getElementById("add-task-btn");
+const addTaskModal = document.querySelector(".task-add-modal");
+const closeTaskModal = document.getElementById("close-modal-btn");
+
+addtaskBtn.addEventListener("click", () => {
+  addTaskModal.style.display = "flex";
+});
+
+addTaskToProjectBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  addTaskModal.style.display = "none";
+});
+
+closeTaskModal.addEventListener("click", () => {
+  addTaskModal.style.display = "none";
+});
