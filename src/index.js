@@ -1,5 +1,10 @@
 import { Project, Task } from "./classes.js";
-import { renderProjects, renderTasks, projects, currentProject } from "./functions.js";
+import {
+  renderProjects,
+  renderTasks,
+  projects,
+  currentProject,
+} from "./functions.js";
 
 // Project interactions
 
@@ -20,6 +25,8 @@ if (addProjectFormBtn) {
     const newProject = new Project(title.value);
     projects.push(newProject);
     renderProjects();
+    currentProject = newProject;
+    title.value = "";
   });
 }
 
@@ -55,6 +62,10 @@ addTaskToProjectBtn.addEventListener("click", (e) => {
   );
   currentProject.tasks.push(task);
   renderTasks();
+  taskTitle.value = "";
+  taskDesc.value = "";
+  taskDate.value = "";
+  taskPriority.value = "";
 });
 
 closeTaskModal.addEventListener("click", () => {

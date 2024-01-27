@@ -101,6 +101,12 @@ function renderTasks() {
     editBtn.addEventListener("click", () => {
       const taskEditModal = document.querySelector(".task-edit-modal");
       taskEditModal.style.display = "flex";
+      const closeTaskEditModalBtn = document.getElementById(
+        "close-edit-modal-btn"
+      );
+      closeTaskEditModalBtn.addEventListener("click", () => {
+        taskEditModal.style.display = "none";
+      });
       const editTaskBtn = document.getElementById("edit-task-btn");
       editTaskBtn.addEventListener("click", (e) => {
         e.preventDefault();
@@ -108,7 +114,6 @@ function renderTasks() {
         const taskDesc = document.getElementById("task-desc-edit");
         const taskDate = document.getElementById("task-date-edit");
         const taskPriority = document.getElementById("task-priority-edit");
-
         task.title = taskTitle.value;
         task.description = taskDesc.value;
         task.date = taskDate.value;
