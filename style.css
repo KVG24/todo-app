@@ -78,6 +78,12 @@ h2 {
   color: white;
 }
 
+.delete-project {
+  font-weight: 900;
+  padding: 10px 10px 40px 10px;
+  font-size: 1.5rem;
+}
+
 .add-project-btn:focus {
   background-color: white;
   color: black;
@@ -187,6 +193,7 @@ h2 {
   font-size: 20px;
   border: 3px solid white;
   border-radius: 10px;
+  padding: 0;
 }
 
 .task-add-modal,
