@@ -1,5 +1,5 @@
 import { Project, Task } from "./classes.js";
-import { renderProjects, projects, currentProject } from "./functions.js";
+import { renderProjects, renderTasks, projects, currentProject } from "./functions.js";
 
 // Project interactions
 
@@ -43,6 +43,18 @@ addtaskBtn.addEventListener("click", () => {
 addTaskToProjectBtn.addEventListener("click", (e) => {
   e.preventDefault();
   addTaskModal.style.display = "none";
+  const taskTitle = document.getElementById("task-title-input");
+  const taskDesc = document.getElementById("task-desc-input");
+  const taskDate = document.getElementById("task-date-input");
+  const taskPriority = document.getElementById("task-priority-input");
+  const task = new Task(
+    taskTitle.value,
+    taskDesc.value,
+    taskDate.value,
+    taskPriority.value
+  );
+  currentProject.tasks.push(task);
+  renderTasks();
 });
 
 closeTaskModal.addEventListener("click", () => {
