@@ -1,71 +1,75 @@
-import { Project, currentProject, projects } from "./projects"
-import { Task } from "./tasks"
+import { Project, Task } from "./classes.js";
+import {
+  renderProjects,
+  renderTasks,
+  projects,
+  currentProject,
+} from "./functions.js";
 
-// Projects manipulation
+// Project interactions
 
-const addProjectModal = document.querySelector('.add-project-modal');
-const addProjectBtn = document.getElementById('add-project-btn');
-const addProjectToPageBtn = document.getElementById('add-project-form-btn');
-const closeProjectFormBtn = document.getElementById('close-project-form-btn');
+const addProjectBtn = document.querySelector(".add-project-btn");
+const addProjectModal = document.querySelector(".add-project-modal");
+const addProjectFormBtn = document.getElementById("add-project-form-btn");
+const closeProjectFormBtn = document.getElementById("close-project-form-btn");
 
-
-addProjectBtn.addEventListener('click', () => {
-    addProjectModal.style.display = 'flex';
+addProjectBtn.addEventListener("click", () => {
+  addProjectModal.style.display = "flex";
 });
 
-addProjectToPageBtn.addEventListener('click', (e) => {
+if (addProjectFormBtn) {
+  addProjectFormBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const projectTitle = document.getElementById('form-project-title')
-    const project = new Project(projectTitle.value)
-    projects.push(project);
-    projectTitle.value = '';
-    Project.renderProjects();
-    Project.setCurrentProject(project);
-    addProjectModal.style.display = 'none';
+    addProjectModal.style.display = "none";
+    const title = document.getElementById("form-project-title");
+    const newProject = new Project(title.value);
+    projects.push(newProject);
+    renderProjects();
+    currentProject = this;
+    title.value = "";
+  });
+}
+
+if (closeProjectFormBtn) {
+  closeProjectFormBtn.addEventListener("click", () => {
+    addProjectModal.style.display = "none";
+  });
+}
+
+// Task interactions
+
+const addtaskBtn = document.getElementById("add-task");
+const addTaskToProjectBtn = document.getElementById("add-task-btn");
+const addTaskModal = document.querySelector(".task-add-modal");
+const closeTaskModal = document.getElementById("close-modal-btn");
+
+addtaskBtn.addEventListener("click", () => {
+  addTaskModal.style.display = "flex";
 });
 
-closeProjectFormBtn.addEventListener('click', () => {
-    addProjectModal.style.display = 'none';
+addTaskToProjectBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  addTaskModal.style.display = "none";
+  const taskTitle = document.getElementById("task-title-input");
+  const taskDesc = document.getElementById("task-desc-input");
+  const taskDate = document.getElementById("task-date-input");
+  const taskPriority = document.getElementById("task-priority-input");
+  const task = new Task(
+    taskTitle.value,
+    taskDesc.value,
+    taskDate.value,
+    taskPriority.value
+  );
+  currentProject.tasks.push(task);
+  renderTasks();
+  taskTitle.value = "";
+  taskDesc.value = "";
+  taskDate.value = "";
+  taskPriority.value = "";
 });
 
-// Tasks manipulation
-
-const addTaskBtn = document.getElementById('add-task');
-const addTaskModal = document.querySelector('.task-add-modal');
-const addTaskBtnForm = document.getElementById('add-task-btn');
-const closeTaskModalBtn = document.getElementById('close-modal-btn');
-
-addTaskBtn.addEventListener('click', () => {
-    addTaskModal.style.display = 'flex';
+closeTaskModal.addEventListener("click", () => {
+  addTaskModal.style.display = "none";
 });
 
-addTaskBtnForm.addEventListener('click', (e) => {
-    e.preventDefault();
-    addTaskModal.style.display = 'none';
-    
-    const taskTitle = document.getElementById('task-title-input');
-    const taskDesc = document.getElementById('task-desc-input');
-    const taskDate = document.getElementById('task-date-input');
-    const taskPriority = document.getElementById('task-priority-input');
-
-    const task = new Task(taskTitle.value, taskDesc.value, taskDate.value, taskPriority.value);
-    currentProject.tasks.push(task);
-    task.render();
-});
-
-closeTaskModalBtn.addEventListener('click', () => {
-    addTaskModal.style.display = 'none';
-});
-
-Project.renderProjects();
-
-
-
-
-
-
-
-
-
-
-
+renderProjects();
