@@ -1,4 +1,25 @@
-let projects = [];
+let projects = [
+  {
+    title: "Home",
+    tasks: [
+      {
+        title: "Clean home",
+        description: "Dust is everywhere",
+        date: "",
+        priority: "High",
+        id: "04626473771948296",
+      },
+      {
+        title: "Repair window",
+        description: "Kids broke the window",
+        date: "",
+        priority: "Regular",
+        id: "037213361870953765",
+      },
+    ],
+    id: "014149084609191154",
+  },
+];
 let currentProject;
 const projectsContainer = document.querySelector(".projects");
 const tasksContainer = document.querySelector(".tasks");

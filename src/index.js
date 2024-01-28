@@ -25,7 +25,7 @@ if (addProjectFormBtn) {
     const newProject = new Project(title.value);
     projects.push(newProject);
     renderProjects();
-    currentProject = newProject;
+    currentProject = this;
     title.value = "";
   });
 }
@@ -71,3 +71,5 @@ addTaskToProjectBtn.addEventListener("click", (e) => {
 closeTaskModal.addEventListener("click", () => {
   addTaskModal.style.display = "none";
 });
+
+renderProjects();
