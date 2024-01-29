@@ -143,7 +143,7 @@ function renderTasks() {
       closeTaskEditModalBtn.addEventListener("click", () => {
         taskEditModal.style.display = "none";
       });
-      const editTaskBtn = document.getElementById("edit-task-btn");
+      const editTaskBtn = document.querySelector(".edit-task-btn");
       editTaskBtn.addEventListener("click", (e) => {
         e.preventDefault();
         const taskTitle = document.getElementById("task-title-edit");
