@@ -156,9 +156,10 @@ h2 {
 .tasks {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  padding: 40px;
+  gap: 30px;
+  padding: 20px;
   flex: 1;
+  align-content: flex-start;
 }
 
 .task {
