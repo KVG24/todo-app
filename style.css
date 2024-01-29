@@ -69,6 +69,12 @@ h2 {
   border-radius: 20px;
 }
 
+.choose-project {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .add-project-btn {
   height: min-content;
   border: 3px solid black;
