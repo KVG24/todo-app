@@ -1,25 +1,31 @@
-let projects = [
-  {
-    title: "Home",
-    tasks: [
-      {
-        title: "Clean home",
-        description: "Dust is everywhere",
-        date: "",
-        priority: "High",
-        id: "04626473771948296",
-      },
-      {
-        title: "Repair window",
-        description: "Kids broke the window",
-        date: "",
-        priority: "Regular",
-        id: "037213361870953765",
-      },
-    ],
-    id: "014149084609191154",
-  },
-];
+let projects;
+if (!localStorage.getItem("projects")) {
+  projects = [
+    {
+      title: "Home",
+      tasks: [
+        {
+          title: "Clean home",
+          description: "Dust is everywhere",
+          date: "",
+          priority: "High",
+          id: "04626473771948296",
+        },
+        {
+          title: "Repair window",
+          description: "Kids broke the window",
+          date: "",
+          priority: "Regular",
+          id: "037213361870953765",
+        },
+      ],
+      id: "014149084609191154",
+    },
+  ];
+} else {
+  projects = JSON.parse(localStorage.getItem("projects"));
+}
+
 let currentProject;
 const projectsContainer = document.querySelector(".projects");
 const tasksContainer = document.querySelector(".tasks");
@@ -50,6 +56,7 @@ function renderProjects() {
     deleteProjectBtn.addEventListener("click", () => {
       projects = projects.filter((item) => item.id !== project.id);
       renderProjects();
+      populateLocalStorage();
     });
     projectDiv.appendChild(projectDivTitle);
     projectDiv.appendChild(deleteProjectBtn);
@@ -110,14 +117,22 @@ function renderTasks() {
     taskBtnContainer.appendChild(deleteBtn);
 
     completeBtn.addEventListener("click", () => {
-      if (taskDiv.classList.value.includes("complete")) {
-        taskDiv.classList.remove("complete");
-        taskTitle.style.textDecoration = "none";
+      if (!task.complete) {
+        task.complete = true;
       } else {
-        taskDiv.classList.add("complete");
-        taskTitle.style.textDecoration = "line-through";
+        task.complete = false;
       }
+      renderTasks();
+      populateLocalStorage();
     });
+
+    if (task.complete) {
+      taskDiv.classList.add("complete");
+      taskTitle.style.textDecoration = "line-through";
+    } else {
+      taskDiv.classList.remove("complete");
+      taskTitle.style.textDecoration = "none";
+    }
 
     editBtn.addEventListener("click", () => {
       const taskEditModal = document.querySelector(".task-edit-modal");
@@ -141,6 +156,7 @@ function renderTasks() {
         task.priority = taskPriority.value;
         taskEditModal.style.display = "none";
         renderTasks();
+        populateLocalStorage();
       });
     });
 
@@ -149,6 +165,7 @@ function renderTasks() {
         (item) => item.id !== task.id
       );
       renderTasks();
+      populateLocalStorage();
     });
 
     taskDiv.appendChild(taskTitle);
@@ -157,7 +174,18 @@ function renderTasks() {
     taskDiv.appendChild(taskPriority);
     taskDiv.appendChild(taskBtnContainer);
     tasksContainer.appendChild(taskDiv);
+    populateLocalStorage();
   });
 }
 
-export { projects, currentProject, renderProjects, renderTasks };
+function populateLocalStorage() {
+  localStorage.setItem("projects", JSON.stringify(projects));
+}
+
+export {
+  projects,
+  currentProject,
+  renderProjects,
+  renderTasks,
+  populateLocalStorage,
+};

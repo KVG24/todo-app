@@ -13,6 +13,7 @@ class Task {
     this.date = date;
     this.priority = priority;
     this.id = Math.random().toString().split(".").join("");
+    this.complete = false;
   }
 }
 

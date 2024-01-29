@@ -4,6 +4,7 @@ import {
   renderTasks,
   projects,
   currentProject,
+  populateLocalStorage
 } from "./functions.js";
 
 // Project interactions
@@ -25,7 +26,7 @@ if (addProjectFormBtn) {
     const newProject = new Project(title.value);
     projects.push(newProject);
     renderProjects();
-    currentProject = this;
+    populateLocalStorage();
     title.value = "";
   });
 }
@@ -62,6 +63,7 @@ addTaskToProjectBtn.addEventListener("click", (e) => {
   );
   currentProject.tasks.push(task);
   renderTasks();
+  populateLocalStorage();
   taskTitle.value = "";
   taskDesc.value = "";
   taskDate.value = "";
