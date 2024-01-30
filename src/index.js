@@ -75,3 +75,4 @@ closeTaskModal.addEventListener("click", () => {
 });
 
 renderProjects();
+renderTasks();

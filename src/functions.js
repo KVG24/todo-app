@@ -26,7 +26,7 @@ if (!localStorage.getItem("projects")) {
   projects = JSON.parse(localStorage.getItem("projects"));
 }
 
-let currentProject;
+let currentProject = projects[0];
 const projectsContainer = document.querySelector(".projects");
 const tasksContainer = document.querySelector(".tasks");
 
@@ -181,6 +181,10 @@ function renderTasks() {
 function populateLocalStorage() {
   localStorage.setItem("projects", JSON.stringify(projects));
 }
+
+// Setting the first project as active
+const firstProjectDiv = document.querySelector('.project');
+firstProjectDiv.classList.add('active');
 
 export {
   projects,
