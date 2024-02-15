@@ -184,7 +184,9 @@ function populateLocalStorage() {
 
 // Setting the first project as active
 const firstProjectDiv = document.querySelector('.project');
-firstProjectDiv.classList.add('active');
+if (firstProjectDiv) {
+  firstProjectDiv.classList.add('active');
+}
 
 export {
   projects,
