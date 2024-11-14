@@ -1,3 +1,4 @@
+import "./style.css";
 import { Project, Task } from "./classes.js";
 import {
   renderProjects,
