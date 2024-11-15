@@ -1,11 +1,11 @@
 import "./style.css";
 import { Project, Task } from "./classes.js";
 import {
-  renderProjects,
-  renderTasks,
-  projects,
-  currentProject,
-  populateLocalStorage
+    renderProjects,
+    renderTasks,
+    projects,
+    currentProject,
+    populateLocalStorage,
 } from "./functions.js";
 
 // Project interactions
@@ -16,26 +16,26 @@ const addProjectFormBtn = document.getElementById("add-project-form-btn");
 const closeProjectFormBtn = document.getElementById("close-project-form-btn");
 
 addProjectBtn.addEventListener("click", () => {
-  addProjectModal.style.display = "flex";
+    addProjectModal.style.display = "flex";
 });
 
 if (addProjectFormBtn) {
-  addProjectFormBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    addProjectModal.style.display = "none";
-    const title = document.getElementById("form-project-title");
-    const newProject = new Project(title.value);
-    projects.push(newProject);
-    renderProjects();
-    populateLocalStorage();
-    title.value = "";
-  });
+    addProjectFormBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        addProjectModal.style.display = "none";
+        const title = document.getElementById("form-project-title");
+        const newProject = new Project(title.value);
+        projects.push(newProject);
+        renderProjects();
+        populateLocalStorage();
+        title.value = "";
+    });
 }
 
 if (closeProjectFormBtn) {
-  closeProjectFormBtn.addEventListener("click", () => {
-    addProjectModal.style.display = "none";
-  });
+    closeProjectFormBtn.addEventListener("click", () => {
+        addProjectModal.style.display = "none";
+    });
 }
 
 // Task interactions
@@ -46,33 +46,33 @@ const addTaskModal = document.querySelector(".task-add-modal");
 const closeTaskModal = document.getElementById("close-modal-btn");
 
 addtaskBtn.addEventListener("click", () => {
-  addTaskModal.style.display = "flex";
+    addTaskModal.style.display = "flex";
 });
 
 addTaskToProjectBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  addTaskModal.style.display = "none";
-  const taskTitle = document.getElementById("task-title-input");
-  const taskDesc = document.getElementById("task-desc-input");
-  const taskDate = document.getElementById("task-date-input");
-  const taskPriority = document.getElementById("task-priority-input");
-  const task = new Task(
-    taskTitle.value,
-    taskDesc.value,
-    taskDate.value,
-    taskPriority.value
-  );
-  currentProject.tasks.push(task);
-  renderTasks();
-  populateLocalStorage();
-  taskTitle.value = "";
-  taskDesc.value = "";
-  taskDate.value = "";
-  taskPriority.value = "";
+    e.preventDefault();
+    addTaskModal.style.display = "none";
+    const taskTitle = document.getElementById("task-title-input");
+    const taskDesc = document.getElementById("task-desc-input");
+    const taskDate = document.getElementById("task-date-input");
+    const taskPriority = document.getElementById("task-priority-input");
+    const task = new Task(
+        taskTitle.value,
+        taskDesc.value,
+        taskDate.value,
+        taskPriority.value
+    );
+    currentProject.tasks.push(task);
+    renderTasks();
+    populateLocalStorage();
+    taskTitle.value = "";
+    taskDesc.value = "";
+    taskDate.value = "";
+    taskPriority.value = "";
 });
 
 closeTaskModal.addEventListener("click", () => {
-  addTaskModal.style.display = "none";
+    addTaskModal.style.display = "none";
 });
 
 renderProjects();
