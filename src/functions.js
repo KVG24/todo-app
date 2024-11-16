@@ -116,7 +116,7 @@ function renderTasks() {
         taskBtnContainer.appendChild(editBtn);
         taskBtnContainer.appendChild(deleteBtn);
 
-        //Task Complete button event listener
+        // Task Complete button event listener
         completeBtn.addEventListener("click", () => {
             if (!task.complete) {
                 task.complete = true;
@@ -135,31 +135,49 @@ function renderTasks() {
             taskTitle.style.textDecoration = "none";
         }
 
-        //Task Edit button even listener
+        // Task Edit button event listener
         editBtn.addEventListener("click", () => {
             const taskEditModal = document.querySelector(".task-edit-modal");
             taskEditModal.style.display = "flex";
+
+            // Pre-fill modal with current task data
+            const taskTitle = document.getElementById("task-title-edit");
+            const taskDesc = document.getElementById("task-desc-edit");
+            const taskDate = document.getElementById("task-date-edit");
+            const taskPriority = document.getElementById("task-priority-edit");
+
+            taskTitle.value = task.title;
+            taskDesc.value = task.description;
+            taskDate.value = task.date;
+            taskPriority.value = task.priority;
+
+            // Remove existing listeners on "Edit Task" button
+            const editTaskBtn = document.querySelector(".edit-task-btn");
+            const newEditTaskBtn = editTaskBtn.cloneNode(true); // Clone button to clear listeners
+            editTaskBtn.replaceWith(newEditTaskBtn);
+
+            // Add a new listener for the current task
+            newEditTaskBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Update task details
+                task.title = taskTitle.value;
+                task.description = taskDesc.value;
+                task.date = taskDate.value;
+                task.priority = taskPriority.value;
+
+                // Close modal and re-render tasks
+                taskEditModal.style.display = "none";
+                renderTasks();
+                populateLocalStorage();
+            });
+
+            // Close modal button listener
             const closeTaskEditModalBtn = document.getElementById(
                 "close-edit-modal-btn"
             );
             closeTaskEditModalBtn.addEventListener("click", () => {
                 taskEditModal.style.display = "none";
-            });
-            const editTaskBtn = document.querySelector(".edit-task-btn");
-            editTaskBtn.addEventListener("click", function (e) {
-                e.preventDefault();
-                const taskTitle = document.getElementById("task-title-edit");
-                const taskDesc = document.getElementById("task-desc-edit");
-                const taskDate = document.getElementById("task-date-edit");
-                const taskPriority =
-                    document.getElementById("task-priority-edit");
-                task.title = taskTitle.value;
-                task.description = taskDesc.value;
-                task.date = taskDate.value;
-                task.priority = taskPriority.value;
-                taskEditModal.style.display = "none";
-                renderTasks();
-                populateLocalStorage();
             });
         });
 
